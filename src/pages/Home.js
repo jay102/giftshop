@@ -1,37 +1,32 @@
 import React from 'react';
-//import { MDBBtn, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol, MDBRow } from 'mdbreact';
-import home from '../img/home.jpg';
+
 const Home = () => {
     return (
         <>
             <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                <img src="http://lorempixel.com/1250/400/abstract/4" alt="img" className="responsive-img"
-                    style={{ marginTop: "6px" }} />
+                <img src="http://lorempixel.com/1250/400/nature/3" alt="img" className="responsive-img" />
             </div>
             <div className="row" style={{ marginTop: "-12px", marginBottom: "0px" }}>
-                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/bunch-flowers.png" />
+                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/bunch-flowers.png" alt="img" />
                     <p className="white-text center" >Flowers</p>
                 </div>
                 </div>
-                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/wedding-cake.png" />
+                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/wedding-cake.png" alt="img" />
                     <p className="white-text center" >Cakes</p>
                 </div>
                 </div>
-                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/wired/50/000000/gift.png" />
+                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/wired/50/000000/gift.png" alt="img" />
                     <p className="white-text center" >Personalised Gifts</p>
                 </div>
                 </div>
-                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/give.png" />
+                <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/give.png" alt="img" />
                     <p className="white-text center" >Handmade Gifts </p>
                 </div>
                 </div>
             </div>
         </>
     )
-
-
 }
-
 export default Home;
 
         // <MDBRow>
