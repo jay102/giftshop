@@ -1,0 +1,2 @@
+token={this.onToken}
+        stripeKey="pk_test_ukemeE5527HxC1FqwuyVsLUW00UvxRosQW"
