@@ -5,8 +5,8 @@ const Home = () => {
     return (
         <>
             <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                <img src="http://lorempixel.com/1250/400/abstract/4" alt="img" className="responsive-img" 
-                style={{ marginTop: "6px" }} />
+                <img src="http://lorempixel.com/1250/400/abstract/4" alt="img" className="responsive-img"
+                    style={{ marginTop: "6px" }} />
             </div>
             <div className="row" style={{ marginTop: "-12px", marginBottom: "0px" }}>
                 <div className="col s3"><div className="card-panel pink lighten-1 center"><img src="https://img.icons8.com/ios/50/000000/bunch-flowers.png" />
