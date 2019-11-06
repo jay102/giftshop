@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <nav>
-        <div className="nav-wrapper blue darken-2">
+        <div className="nav-wrapper blue darken-3">
           <ul className="left hide-on-med-and-down">
             <li>
               <div style={{paddingLeft:"20px"}}>  Join Our Newsletter
