@@ -7,17 +7,17 @@ const Footer = () => {
         <div className="nav-wrapper blue darken-3">
           <ul className="left hide-on-med-and-down">
             <li>
-              <div style={{paddingLeft:"20px"}}>  Join Our Newsletter
+              <div style={{ paddingLeft: "20px"}}>  Join Our Newsletter
         <i className="material-icons right">email</i>
               </div>
             </li>
             <li>
-              <div style={{paddingLeft:"20px"}}>Become an affiliate
+              <div style={{ paddingLeft: "20px" }}>Become an affiliate
         <i className="material-icons right">assignment</i>
               </div>
             </li>
             <li>
-              <div style={{paddingLeft:"20px"}}>Contact Us
+              <div style={{ paddingLeft: "20px" }}>Contact Us
         <i className="material-icons right ">email</i>
               </div>
             </li>
@@ -30,34 +30,34 @@ const Footer = () => {
         </div>
       </nav>
 
-      <div class="row black ">
-        <div class="col 16 s4">
-          <p class="white-text" style={{paddingLeft:"20px"}}>Resources</p>
-          <ul  style={{paddingLeft:"20px"}}>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+      <div className="row black ">
+        <div className="col 16 s4">
+          <p className="white-text" style={{ paddingLeft: "20px" }}>Resources</p>
+          <ul style={{ paddingLeft: "20px" }}>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
         </div>
-        <div class="col 16 s4">
-          <p class="white-text">Free Tutorial</p>
+        <div className="col 16 s4">
+          <p className="white-text">Free Tutorial</p>
           <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-          </div>
-        <div class="col 16 s4">
-          <p class="white-text" >Company</p>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div className="col 16 s4">
+          <p className="white-text" >Company</p>
           <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-          </div>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
       </div>
     </>
 
@@ -65,10 +65,4 @@ const Footer = () => {
 }
 
 export default Footer;
-    // <footer className="page-footer teal">
-
-    //   <div className="container center">
-    //   © 2019 Gift Shop
-    //   </div>
-
-    // </footer>
+    

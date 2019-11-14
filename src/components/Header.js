@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
     componentDidMount() {
         const M = window.M;
@@ -16,25 +17,33 @@ export default class Header extends React.Component {
             <>
                 <nav>
                     <div className="nav-wrapper pink lighten-1">
-                        <Link to="#!" className="brand-logo">Gift Shop</Link>
-                        <ul className="right hide-on-med-and-down">
-                            <li><a href="#"><i className="material-icons ">search</i></a></li>
-                            <li><a href="#"><i className="material-icons">attach_money</i></a></li>
-                            <li><a href="#"><i className="material-icons">star</i></a></li>
-                            <li><a href="#"><i className="material-icons">shopping_cart</i></a></li>
-                            <li><a href="#"><i className="material-icons">person</i></a></li>
+                        <Link to="/" className="brand-logo">
+                            GiftShop
+                        </Link>
+                        <ul className="right ">
+                            <li>
+                                <Link to="#"><i className="material-icons ">search</i></Link>
+                            </li>
+                            <li><Link to="#"><i className="material-icons">attach_money</i></Link></li>
+                            <li><Link to="#"><i className="material-icons">star</i></Link></li>
+                            <li><Link to="/cart" >
+                                <i className="material-icons">shopping_cart</i>
+                                {this.props.cart.reduce((acc, item) => {
+                                    return acc + item.quantity
+                                }, 0)}</Link></li>
+                            <li><Link to="#"><i className="material-icons">person</i></Link></li>
                         </ul>
                     </div>
                     <div className="nav-wrapper pink darken-2">
                         <a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
                         <ul className="left hide-on-med-and-down">
-                            <li><Link to="#">Browse Gifts</Link></li>
+                            <li><Link to="/products">Browse Gifts</Link></li>
                         </ul>
-
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        <ul id="nav-mobile" className="right hide-on-med-and-down" >
                             <li><Link to="#">BirthdayGifts</Link></li>
                             <li><Link to="#">AnniversaryGifts</Link></li>
                             <li><Link to="#">SamedayDeliveryGifts</Link></li>
+                            
                         </ul>
                     </div>
                 </nav>
@@ -42,12 +51,12 @@ export default class Header extends React.Component {
                 <ul id="slide-out" className="sidenav">
                     <li><a href="#!">Shop By Department</a></li>
                     <li><div className="divider"></div></li>
-                    <li><a href="#!" className="waves-effect">Christmas <i class="material-icons right">add</i></a></li>
-                    <li><a href="#!" className="waves-effect">Anniversary<i class="material-icons right">add</i></a></li>
-                    <li><a href="#!" className="waves-effect">Birthday<i class="material-icons right">add</i></a></li>
-                    <li><a href="#!" className="waves-effect">Gift For Him<i class="material-icons right">add</i></a></li>
-                    <li><a href="#!" className="waves-effect">Gift For Her<i class="material-icons right">add</i></a></li>
-                    <li><a href="#!" className="waves-effect">Home & Garden<i class="material-icons right">add</i></a></li>
+                    <li><Link to="/products" className="waves-effect">Christmas <i className="material-icons right">add</i></Link></li>
+                    <li><Link to="/products" className="waves-effect">Anniversary<i className="material-icons right">add</i></Link></li>
+                    <li><Link to="/products" className="waves-effect">Birthday<i className="material-icons right">add</i></Link></li>
+                    <li><Link to="/products" className="waves-effect">Gift For Him<i className="material-icons right">add</i></Link></li>
+                    <li><Link to="/products" className="waves-effect">Gift For Her<i className="material-icons right">add</i></Link></li>
+                    <li><Link to="/products" className="waves-effect">Home & Garden<i className="material-icons right">add</i></Link></li>
 
 
 
@@ -59,10 +68,18 @@ export default class Header extends React.Component {
 
         )
     }
+
+}
+function mapStateToProps(state) {
+    return {
+        cart: state.cart
+    }
 }
 
+export default connect(mapStateToProps)(Header);
 
-// const Header = ({auth}) => {
+
+  // const Header = ({auth}) => {
 //     const authButton = auth ? (
 //         <a href="http://react-ssr-api.herokuapp.com/logout">Logout</a>
 //     ) : (

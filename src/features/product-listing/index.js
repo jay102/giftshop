@@ -5,18 +5,22 @@ import { connect } from 'react-redux';
 function ProductListing(props) {
 
     return (
-        <div>
-            {props.products.map(product =>
-                <div key={product.name}>
-                    <ProductListItem product={product}
+        <div className="row">
+            <div className="col s1" style={{ display: "flex", flex: "1", flexDirection: "row" }}>
+                
+                {props.products.map((product, i) =>
+                    <ProductListItem key={i}
+                        product={product}
                         addToCart={props.addToCart}
                         removeFromCart={props.removeFromCart}
                         cartItem={props.cart.filter(cartItem => cartItem.id === product.id)[0]}
                         cart={props.cart}
                     />
-                </div>
-            )}
-        </div>
+
+                )}
+            </div>
+            </div>
+        
     )
 }
 
@@ -34,7 +38,7 @@ function mapDispatchToProps(dispatch) {
                 payload: item
             })
         }
-         
+
     }
 }
 

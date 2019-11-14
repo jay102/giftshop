@@ -1,0 +1,47 @@
+<div className="row" style={{marginTop:"20px" }}>
+
+        <div className="col s3"> <div className="card-panel pink lighten-1">
+            <img src="http://lorempixel.com/300/100/nature/3" alt="" className="responsive-img" />
+            £{props.product.price}
+            <button href="#"
+                onClick={() => props.addToCart(props.product)}>add to cart({
+                    (props.cartItem && props.cartItem.quantity) || 0
+                })
+                             </button>
+        </div>
+        </div>
+
+        <div className="col s3">
+            <div className="card-panel grey">
+                <img src="http://lorempixel.com/300/100/nature/3" alt="" className="responsive-img" />
+                £{props.product.price}
+                <button href="#"
+                    onClick={() => props.addToCart(props.product)}>add to cart({
+                        (props.cartItem && props.cartItem.quantity) || 0
+                    })
+                             </button>
+            </div>
+        </div>
+        <div className="col s3">
+            <div className="card-panel grey">
+                <img src="http://lorempixel.com/300/100/nature/3" alt="" className="responsive-img" />
+                £{props.product.price}
+                <button href="#"
+                    onClick={() => props.addToCart(props.product)}>add to cart({
+                        (props.cartItem && props.cartItem.quantity) || 0
+                    })
+                             </button>
+            </div>
+        </div>
+        <div className="col s3">
+            <div className="card-panel grey">
+                <img src="http://lorempixel.com/300/100/nature/3" alt="" className="responsive-img" />
+                £{props.product.price}
+                <button href="#"
+                    onClick={() => props.addToCart(props.product)}>add to cart({
+                        (props.cartItem && props.cartItem.quantity) || 0
+                    })
+                             </button>
+            </div>
+        </div>
+    </div>

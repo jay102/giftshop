@@ -1,48 +1,100 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import { Link } from 'react-router-dom';
 
-function sort(items) {
-    return items.sort((a, b) => a.id < b.id)
+// function handlePageChange() {
+//     window.location = "/checkout";
+//   }
+
+function Cart(props) {
+
+    function sort(items) {
+        return items.sort((a, b) => a.id < b.id)
+    }
+
+    const total = props.cart.reduce((acc,item)=>{
+        return (acc+item.price * item.quantity)
+    },0)
+
+        return (
+        <div className="row">
+            <div className="col s8">
+                <table style={{ marginTop: "20px" }}>
+                    <thead  >
+                        <tr >
+                            <th># Item Detail</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            sort(props.cart).map(item => <tr key={item.id}>
+                                <td className="chip" style={{ marginTop: "10px" }}>
+                                    <img src={item.imgUrl} className="responsive-img" alt="" />{item.name}</td>
+                                <td>{item.quantity}</td>
+                                <td>£{item.price * item.quantity}</td>
+                                <td>
+                                    <button
+                                        className="btn-floating btn-small waves-effect waves-light pink"
+                                        onClick={() => props.addToCart(item)}>
+                                        <i className=" material-icons ">add</i>+</button>
+                                </td>
+                                <td>
+                                    <button
+                                        className="btn-floating btn-small waves-effect waves-light pink"
+                                        onClick={() => props.removeFromCart(item)}>
+                                        <i className="material-icons ">remove</i>-</button>
+                                </td>
+                                <td>
+                                    <button onClick={() => props.removeAllFromCart(item)}>Remove All Items</button>
+                                </td>
+                            </tr>
+
+                            )}
+                    </tbody>
+                </table >
+            </div>
+
+            <div className="col s4 ">
+                <table style={{ marginTop: "20px", border: "1px solid grey" }} >
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td> <h6 className="center">Order Summary </h6></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style={{ paddingLeft: "5px" }} >Your order qualifies for free delivery</p> </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style={{ paddingLeft: "5px" }} >Total: £ {total}
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button className="pink darken-3 btn ">
+                                    <Link to="/checkout" style={{ color: "white" }}>Continue to Checkout</Link>
+                                </button>
+                                <br />
+                                <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                                <img src="https://img.icons8.com/color/48/000000/bank-card-front-side.png" />
+                                <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"></img>
+                                <img src="https://img.icons8.com/color/48/000000/paypal.png"></img>
+
+
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    )
 }
-
-function Cart(props){
-return (
-    <table style={{ marginTop: "20px" }}>
-        <thead color="grey" textWhite >
-            <tr >
-                <th>#</th>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {
-                sort(props.cart).map(item => <div key={item.id}>
-                    <tr>
-                        <td>{item.name}</td>
-                        <td>{item.quantity}</td>
-                        <td>£{item.price* item.quantity}</td>
-                        <td>
-                            <button onClick={() => props.addToCart(item)}>+</button>
-                        </td>
-                        <td>
-                            <button onClick={() => props.removeFromCart(item)}>-</button>
-                        </td>
-                        <td>
-                            <button onClick={() => props.removeAllFromCart(item)}>Remove All Items</button>
-                        </td>
-                    </tr>
-                </div>
-                )}
-        </tbody>
-    </table >
-    )}
-
-
-
-
 function mapStateToProps(state) {
     return {
         cart: state.cart
