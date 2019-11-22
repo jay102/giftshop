@@ -6,8 +6,7 @@ import Footer from './components/Footer';
 const App = () => {
     return (
         <>
-
-            <BrowserRouter>
+           <BrowserRouter>
                 <Header />
                 <Routes />
                 <Footer />

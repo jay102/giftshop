@@ -80,10 +80,10 @@ function Cart(props) {
                                     <Link to="/checkout" style={{ color: "white" }}>Continue to Checkout</Link>
                                 </button>
                                 <br />
-                                <img src="https://img.icons8.com/color/48/000000/visa.png" />
-                                <img src="https://img.icons8.com/color/48/000000/bank-card-front-side.png" />
-                                <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"></img>
-                                <img src="https://img.icons8.com/color/48/000000/paypal.png"></img>
+                                <img src="https://img.icons8.com/color/30/000000/visa.png" alt="img" />
+                                <img src="https://img.icons8.com/color/30/000000/bank-card-front-side.png"  alt="img"/>
+                                <img src="https://img.icons8.com/color/30/000000/mastercard-logo.png" alt="img"></img>
+                                <img src="https://img.icons8.com/color/30/000000/paypal.png" alt="img"></img>
 
 
                             </td>

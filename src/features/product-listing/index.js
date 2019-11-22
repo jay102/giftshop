@@ -2,25 +2,24 @@ import React from "react";
 import ProductListItem from './productlistitem';
 import { connect } from 'react-redux';
 
-function ProductListing(props) {
 
+function ProductListing(props) {
     return (
         <div className="row">
-            <div className="col s1" style={{ display: "flex", flex: "1", flexDirection: "row" }}>
-                
-                {props.products.map((product, i) =>
-                    <ProductListItem key={i}
-                        product={product}
-                        addToCart={props.addToCart}
-                        removeFromCart={props.removeFromCart}
-                        cartItem={props.cart.filter(cartItem => cartItem.id === product.id)[0]}
-                        cart={props.cart}
-                    />
-
-                )}
+            <div className="col s12">
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                    {props.products.map((product, i) =>
+                        <ProductListItem key={i}
+                            product={product}
+                            addToCart={props.addToCart}
+                            removeFromCart={props.removeFromCart}
+                            cartItem={props.cart.filter(cartItem => cartItem.id === product.id)[0]}
+                            cart={props.cart}
+                        />
+                    )}
+                </div>
             </div>
-            </div>
-        
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import img1 from '../img/img1.png';
 
 export default class Home extends React.Component {
 
@@ -13,8 +14,8 @@ export default class Home extends React.Component {
         return (
             <>
                 <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                    <img src="http://lorempixel.com/1250/300/nature/7" alt="img" className="responsive-img"
-                        style={{ marginTop: "1px" }} />
+                    <img src={img1} alt="img" className="responsive-img"
+                        style={{ marginTop: "1px" }}  />
                 </div>
 
                 <div className="row" style={{ marginTop: "-12px", marginBottom: "0px" }}>

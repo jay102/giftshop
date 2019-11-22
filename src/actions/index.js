@@ -25,3 +25,12 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
         payload: res
     });
 };
+
+export const showPdtDesc=( data,id)=>{
+    return {
+        type:"SHOW_PRODUCT",
+        payload: data,
+        id:parseInt(id)
+       
+    }
+}

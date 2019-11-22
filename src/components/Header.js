@@ -10,8 +10,19 @@ class Header extends React.Component {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems, {});
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, {});
+
+        });
     }
+
+
     render() {
+        var total = this.props.cart.reduce((acc, item) => {
+            return acc + item.quantity
+        }, 0)
 
         return (
             <>
@@ -27,26 +38,76 @@ class Header extends React.Component {
                             <li><Link to="#"><i className="material-icons">attach_money</i></Link></li>
                             <li><Link to="#"><i className="material-icons">star</i></Link></li>
                             <li><Link to="/cart" >
-                                <i className="material-icons">shopping_cart</i>
-                                {this.props.cart.reduce((acc, item) => {
-                                    return acc + item.quantity
-                                }, 0)}</Link></li>
-                            <li><Link to="#"><i className="material-icons">person</i></Link></li>
+                                <i className="material-icons" cart={total}>shopping_cart</i>
+                            </Link></li>
+                            <li><Link to="#loginModal" ><i className="material-icons modal-trigger" data-target="loginModal" > person  </i></Link></li>
                         </ul>
+
                     </div>
-                    <div className="nav-wrapper pink darken-2">
+                    <div id="loginModal" className="modal" style={{ width: "400px", height: "200px", overflow: "hidden" }}>
+                        <div className="modal-content">
+                            <form >
+
+                                <div className="black-text" style={{ border: "1px solid #9e9e9e", paddingLeft: "10px" }}>
+                                    <label for="signin" >
+                                        <input id="signin" name="login" type="radio" className="with-gap modal-trigger" data-target="signinModal" />
+                                        <span>Sign in</span>
+                                    </label>
+                                </div>
+
+                                <div className="black-text " style={{ border: "1px solid #9e9e9e", marginTop: "10px", paddingLeft: "10px" }}>
+                                    <label for="guest" >
+                                        <input id="guest" name="login" type="radio" className="with-gap modal-trigger" data-target="guestModal" />
+                                        <span>Guest Checkout</span>
+                                    </label>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    {/* guest checkout modal structure  */}
+                    <div id="guestModal" className="modal" style={{ width: "400px", height: "200px", overflow: "hidden" }}>
+                        <div className="modal-content">
+                            <form >
+                                <label>Email:</label>
+                                <input type="email" />
+                                <button type="submit" className="small-btn btn pink right">Continue as guest </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    {/* signin modal structure  */}
+                    <div id="signinModal" className="modal " style={{ width: "600px", overflow: "scroll" }}>
+                        <div className="modal-content">
+                            <h4 className="black-text center">Log in</h4>
+                            <p className="black-text ">If you are already registered please login with your existing email and password</p>
+                            <form >
+                                <label>Email:</label>
+                                <input type="email" style={{marginTop:"-10px"}} />
+                                <label>Password:</label>
+                                <input type="password" />
+                                <button type="submit" className=" waves-effect waves-light btn-large btn pink">Login</button>
+                                <br />
+                                <Link to="" className="black-text">Forgot Password</Link>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <div className="nav-wrapper pink darken-3">
                         <a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
                         <ul className="left hide-on-med-and-down">
-                            <li><Link to="/products">Browse Gifts</Link></li>
+                            <li><Link to="/productcategory">Browse Gifts</Link></li>
                         </ul>
                         <ul id="nav-mobile" className="right hide-on-med-and-down" >
                             <li><Link to="#">BirthdayGifts</Link></li>
                             <li><Link to="#">AnniversaryGifts</Link></li>
                             <li><Link to="#">SamedayDeliveryGifts</Link></li>
-                            
+
                         </ul>
                     </div>
-                </nav>
+                </nav >
 
                 <ul id="slide-out" className="sidenav">
                     <li><a href="#!">Shop By Department</a></li>
