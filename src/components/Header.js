@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Login from '../authentication/login';
+import GuestCheckout from '../authentication/guestCheckout';
 
 class Header extends React.Component {
 
@@ -65,35 +67,23 @@ class Header extends React.Component {
                             </form>
                         </div>
                     </div>
-                    {/* guest checkout modal structure  */}
+
+                    {/* guest checkout modal structure   */}
+
                     <div id="guestModal" className="modal" style={{ width: "400px", height: "200px", overflow: "hidden" }}>
                         <div className="modal-content">
-                            <form >
-                                <label>Email:</label>
-                                <input type="email" />
-                                <button type="submit" className="small-btn btn pink right">Continue as guest </button>
-                            </form>
+                            <GuestCheckout />
                         </div>
                     </div>
 
                     {/* signin modal structure  */}
-                    <div id="signinModal" className="modal " style={{ width: "600px", overflow: "scroll" }}>
+
+                    <div id="signinModal" className="modal " style={{ width: "45%", overflow: "hidden" }}>
                         <div className="modal-content">
-                            <h4 className="black-text center">Log in</h4>
-                            <p className="black-text ">If you are already registered please login with your existing email and password</p>
-                            <form >
-                                <label>Email:</label>
-                                <input type="email" style={{marginTop:"-10px"}} />
-                                <label>Password:</label>
-                                <input type="password" />
-                                <button type="submit" className=" waves-effect waves-light btn-large btn pink">Login</button>
-                                <br />
-                                <Link to="" className="black-text">Forgot Password</Link>
-                            </form>
+                            <Login />
+                           
                         </div>
                     </div>
-
-
 
                     <div className="nav-wrapper pink darken-3">
                         <a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
@@ -104,9 +94,9 @@ class Header extends React.Component {
                             <li><Link to="#">BirthdayGifts</Link></li>
                             <li><Link to="#">AnniversaryGifts</Link></li>
                             <li><Link to="#">SamedayDeliveryGifts</Link></li>
-
                         </ul>
                     </div>
+
                 </nav >
 
                 <ul id="slide-out" className="sidenav">
@@ -118,25 +108,16 @@ class Header extends React.Component {
                     <li><Link to="/products" className="waves-effect">Gift For Him<i className="material-icons right">add</i></Link></li>
                     <li><Link to="/products" className="waves-effect">Gift For Her<i className="material-icons right">add</i></Link></li>
                     <li><Link to="/products" className="waves-effect">Home & Garden<i className="material-icons right">add</i></Link></li>
-
-
-
-
                 </ul>
-
-
             </>
-
         )
     }
-
 }
 function mapStateToProps(state) {
     return {
         cart: state.cart
     }
 }
-
 export default connect(mapStateToProps)(Header);
 
 

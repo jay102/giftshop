@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { showPdtDesc } from '../actions';
+//import { showPdtDesc } from '../actions';
 
 class ProductDetail extends React.Component {
 

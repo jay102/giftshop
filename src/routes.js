@@ -6,6 +6,8 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import ProductCategory from './pages/ProductCategory';
+import Login from './authentication/login';
+import Register from './authentication/register';
 
 const Routes = () => {
     return (
@@ -22,6 +24,8 @@ const Routes = () => {
                 <Route exact path="/xmasgift" component={ProductDetail} />
                 <Route exact path="/checkout" component={Checkout} />
                 <Route exact path="/productcategory" component={ProductCategory} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
                 
                
             </Switch>

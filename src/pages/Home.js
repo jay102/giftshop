@@ -1,5 +1,5 @@
 import React from 'react';
-import img1 from '../img/img1.png';
+import img1 from '../img/img1.jpg';
 
 export default class Home extends React.Component {
 
