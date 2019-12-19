@@ -1,8 +1,11 @@
-import { FETCH_CURRENT_USER } from '../actions';
-
-export default function (state = null, action) {
+//we import our constants here from our constants file
+import { authConstants } from '../constants';
+// import { FETCH_CURRENT_USER } from '../actions';
+//we add an initial state with an empty user here
+const initialState = {user:null}
+export default function (state = initialState, action) {
     switch (action.type) {
-        case FETCH_CURRENT_USER:
+        case authConstants.FETCH_CURRENT_USER:
             return action.payload.data || false;
         default:
             return state;
