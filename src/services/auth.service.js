@@ -5,6 +5,7 @@
 //and also to avoid duplications.
 //here we would use the fetch api to make requests and then return a promise
 
+const BASE_URL= localStorage.getItem("base_url");
 export const authService = {
 login,register,currentUser
 } 
@@ -23,7 +24,7 @@ const login = (email,password) => {
         },
         body:JSON.stringify({email,password})
     }
-    return fetch(`${BASE_URL}/login`,requestOptions).then(handleResponse)
+    return fetch(`${BASE_URL}/auth/login`,requestOptions).then(handleResponse)
 }
 
 const register = (info) => {
@@ -34,7 +35,7 @@ const register = (info) => {
         },
         body:JSON.stringify(info)
     }
-    return fetch(`${BASE_URL}/register`,requestOptions).then(handleResponse)
+    return fetch(`${BASE_URL}/auth/register`,requestOptions).then(handleResponse)
 }
 
 const currentUser = (token) => {

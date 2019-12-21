@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-export default class Register extends React.Component {
-    constructor() {
-        super();
+import {connect} from 'react-redux';
+
+class Register extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {
             datas: [], action: 0
         }
@@ -69,3 +70,11 @@ componentDidMount(){
     }
 
 }
+
+function mapStateToProps(state){
+    return{
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Register);

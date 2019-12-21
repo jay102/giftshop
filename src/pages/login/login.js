@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Register from './register';
-export default class Login extends React.Component {
-    constructor() {
-        super();
+import { connect } from 'react-redux';
+class Login extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {
             datas: [],
             action: 0
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         let datas = this.state.datas;
         let email = this.refs.email.value;
@@ -59,8 +58,8 @@ export default class Login extends React.Component {
                 </form>
                 <p
                     style={{ fontSize: "14px", marginTop: "-15px" }} className="center" >
-                    <Link to=" " className="black-text">Forgot Password</Link>
-                    <Link to="/register" className="black-text">| Register</Link>
+                    <a href="# " className="black-text">Forgot Password</a>
+                    <a href="/register" className="black-text"> | Register</a>
                 </p>
                 <p className="black-text center" style={{ marginTop: "-35px" }}>Login with
             <span>
@@ -75,3 +74,9 @@ export default class Login extends React.Component {
     }
 
 }
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    }
+}
+export default connect(mapStateToProps)(Login)
