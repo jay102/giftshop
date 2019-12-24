@@ -6,9 +6,7 @@
 //here we would use the fetch api to make requests and then return a promise
 
 const BASE_URL= localStorage.getItem("base_url");
-export const authService = {
-login,register,currentUser
-} 
+ 
 
 const handleResponse = (response) => {
     if(!response.ok){
@@ -47,3 +45,6 @@ const currentUser = (token) => {
     }
     return fetch(`${BASE_URL}/current_user/${token}`,requestOptions).then(handleResponse)
 }
+export const authService = {
+    login,register,currentUser
+    }
