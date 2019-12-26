@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { authActions } from "../../actions"
+import { withRouter } from 'react-router';
 
 class Register extends React.Component {
     constructor(props) {
@@ -16,15 +17,15 @@ class Register extends React.Component {
     }
     handleChange = (e) => {
         const { name, value } = e.target;
-
         this.setState({
             [name]: value
         })
     }
+
     handleSubmit = (e) => {
         e.preventDefault();
         const { name, email, password } = this.state
-        const role = "user"
+        const role = "user";
         const { dispatch } = this.props
         const info = { name, email, password, role }
         if (name !== "" && email != "" && password != "") {
@@ -33,8 +34,8 @@ class Register extends React.Component {
         else {
             alert("email and password cannot be empty")
         }
+        this.props.history.push('/');
     }
-
     render() {
         const { auth } = this.props
         //console.log(auth.respone)
@@ -47,13 +48,13 @@ class Register extends React.Component {
                 <br /><br />
                 <div className="container">
                     <h4 className="black-text center" style={{ marginTop: "40px" }}>Register</h4>
-                    <form name="myForm" >
+                    <form name="myForm">
                         <div className="input-field" style={{ marginTop: "-35px" }} >
-                            <input type="text"  name="name" value={this.state.name} onChange={this.handleChange}  />
+                            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
                             <label for="name">Name:</label>
                         </div>
                         <div className="input-field" style={{ marginTop: "-35px" }} >
-                            <input type="email" name="email" value={this.state.email} onChange={this.handleChange}  />
+                            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
                             <label for="email">Email:</label>
                         </div>
                         <div className="input-field">
@@ -68,6 +69,7 @@ class Register extends React.Component {
                             >
                                 Register
                               </button>
+
                         </div>
                     </form>
                 </div>

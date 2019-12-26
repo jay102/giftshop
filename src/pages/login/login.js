@@ -7,43 +7,35 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            datas: [],
-            action: 0,
-            name: "",
-            email: " ",
+            email: "",
             password: ""
-
         }
     }
-
     handleChange = (e) => {
         const { name, value } = e.target
         this.setState({
             [name]: value
-
         })
     }
-
     handleSubmit = (e) => {
         e.preventDefault();
         const { email, password } = this.state;
         const { dispatch } = this.props;
-        if (email !="" && password !=="") {
-            alert(" Name or password cannnot be empty")
+        const info = { email, password }
+        if (email !== "" && password !== "") {
+           dispatch(authActions.login(info));
         }
-        if(!email || !password){
-            dispatch(authActions.login(email, password));
+        else {
+            alert("Name or password cannnot be empty")
         }
-                else {
-            dispatch(authActions.login(email, password));
-        }
-
     }
 
     render() {
         const { auth } = this.props;
+        console.log(auth.response)
         if (auth.response) {
             alert(auth.response.message)
+
         }
         return (
             <div>
