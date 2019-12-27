@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Login from '../authentication/login';
-import GuestCheckout from '../authentication/guestCheckout';
+import Login from '../pages/login/login';
+import GuestCheckout from '../pages/login/guestCheckout';
 
 class Header extends React.Component {
 

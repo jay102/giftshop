@@ -6,8 +6,8 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import ProductCategory from './pages/ProductCategory';
-import Login from './authentication/login';
-import Register from './authentication/register';
+import Login from './pages/login/login';
+import Register from './pages/login/register';
 
 const Routes = () => {
     return (
