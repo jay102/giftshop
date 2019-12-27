@@ -21,9 +21,8 @@ class Login extends React.Component {
         e.preventDefault();
         const { email, password } = this.state;
         const { dispatch } = this.props;
-        const info = { email, password }
         if (email !== "" && password !== "") {
-           dispatch(authActions.login(info));
+           dispatch(authActions.login(email,password));
         }
         else {
             alert("Name or password cannnot be empty")
@@ -33,10 +32,6 @@ class Login extends React.Component {
     render() {
         const { auth } = this.props;
         console.log(auth.response)
-        if (auth.response) {
-            alert(auth.response.message)
-
-        }
         return (
             <div>
                 <h4 className="black-text center">Log in </h4>
