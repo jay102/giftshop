@@ -1,11 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
 import Login from '../pages/login/login';
 import GuestCheckout from '../pages/login/guestCheckout';
+import { authActions } from '../actions';
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
 
 class Header extends React.Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            modalIsOpen: false
+        }
+    }
     componentDidMount() {
         const M = window.M;
         document.addEventListener('DOMContentLoaded', function () {
@@ -20,11 +38,31 @@ class Header extends React.Component {
         });
     }
 
+    openModal = () => {
+        this.setState({
+            modalIsOpen: true
+        });
+    }
+
+    closeModal = () => {
+        this.setState({
+            modalIsOpen: false
+        });
+    }
+
+    logout =()=>{
+        const {dispatch} = this.props
+        dispatch(dispatch=>dispatch(authActions.logout()))
+    }
+
+
 
     render() {
         var total = this.props.cart.reduce((acc, item) => {
             return acc + item.quantity
         }, 0)
+
+        const { auth } = this.props
 
         return (
             <>
@@ -42,36 +80,37 @@ class Header extends React.Component {
                             <li><Link to="/cart" >
                                 <i className="material-icons" cart={total}>shopping_cart</i>
                             </Link></li>
-                            <li><Link to="#loginModal" ><i className="material-icons modal-trigger" data-target="loginModal" > person  </i></Link></li>
+                            {localStorage.getItem('user') ? <li><Link to="/logout" onClick={this.logout} >Logout</Link></li>
+                                : <li><Link to="#"><i className="material-icons modal-trigger" onClick={this.openModal} > person </i> </Link></li>}
+
+                            <Modal isOpen={this.state.modalIsOpen} style={customStyles}>
+                                <div style={{ width: "400px", height: "200px", overflow: "hidden" }}  >
+                                    <form >
+                                        <div className="black-text" style={{ border: "1px solid #9e9e9e", paddingLeft: "10px" }}  >
+                                            <label for="signin" >
+                                                <input id="signin" name="login" type="radio" className="with-gap modal-trigger" data-target="signinModal" />
+                                                <span>Sign in</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="black-text " style={{ border: "1px solid #9e9e9e", marginTop: "10px", paddingLeft: "10px" }}>
+                                            <label for="guest" >
+                                                <input id="guest" name="login" type="radio" className="with-gap modal-trigger" data-target="guestModal" />
+                                                <span>Guest Checkout</span>
+                                            </label>
+                                        </div >
+                                        <button onClick={this.closeModal}>close </button>
+                                    </form>
+                                </div >
+                            </Modal>
                         </ul>
 
-                    </div>
-                    <div id="loginModal" className="modal" style={{ width: "400px", height: "200px", overflow: "hidden" }}>
-                        <div className="modal-content">
-                            <form >
-
-                                <div className="black-text" style={{ border: "1px solid #9e9e9e", paddingLeft: "10px" }}>
-                                    <label for="signin" >
-                                        <input id="signin" name="login" type="radio" className="with-gap modal-trigger" data-target="signinModal" />
-                                        <span>Sign in</span>
-                                    </label>
-                                </div>
-
-                                <div className="black-text " style={{ border: "1px solid #9e9e9e", marginTop: "10px", paddingLeft: "10px" }}>
-                                    <label for="guest" >
-                                        <input id="guest" name="login" type="radio" className="with-gap modal-trigger" data-target="guestModal" />
-                                        <span>Guest Checkout</span>
-                                    </label>
-                                </div>
-
-                            </form>
-                        </div>
                     </div>
 
                     {/* guest checkout modal structure   */}
 
                     <div id="guestModal" className="modal" style={{ width: "400px", height: "200px", overflow: "hidden" }}>
-                        <div className="modal-content">
+                        <div className="modal-content" onClick={this.closeModal}>
                             <GuestCheckout />
                         </div>
                     </div>
@@ -79,9 +118,9 @@ class Header extends React.Component {
                     {/* signin modal structure  */}
 
                     <div id="signinModal" className="modal " style={{ width: "45%", overflow: "hidden" }}>
-                        <div className="modal-content">
+                        <div className="modal-content" onClick={this.closeModal}>
                             <Login />
-                           
+
                         </div>
                     </div>
 
@@ -115,37 +154,10 @@ class Header extends React.Component {
 }
 function mapStateToProps(state) {
     return {
-        cart: state.cart
+        cart: state.cart,
+        auth: state.auth
     }
 }
 export default connect(mapStateToProps)(Header);
 
 
-  // const Header = ({auth}) => {
-//     const authButton = auth ? (
-//         <a href="http://react-ssr-api.herokuapp.com/logout">Logout</a>
-//     ) : (
-//         <a href="http://react-ssr-api.herokuapp.com/auth/google">Login</a>
-//     );
-
-//     return(
-//         <nav>
-//             <div classNameName="nav-wrapper teal">
-//                 <Link to="/" className="brand-logo">GIFT SHOP</Link>
-//                 <ul className="right">
-//                     <li><Link to="/home">Home</Link></li>
-//                     <li><Link to="/products">Products</Link></li>
-//                     <li><Link to="/cart">Cart</Link></li>
-//                     <li><Link to="/checkout">Checkout</Link></li>
-//                     <li>{authButton}</li>
-//                 </ul>
-//             </div>
-//         </nav>
-//     );
-// };
-
-// function mapStateToProps({ auth }) {
-//     return { auth };
-// }
-
-// export default connect(mapStateToProps)(Header);

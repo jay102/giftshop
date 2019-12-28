@@ -10,7 +10,7 @@ const BASE_URL= localStorage.getItem("base_url");
 
 const handleResponse = (response) => {
     if(!response.ok){
-        Promise.reject(response.json())
+        return Promise.reject(response.json())
     }
     return response.json();
 }
@@ -45,6 +45,10 @@ const currentUser = (token) => {
     }
     return fetch(`${BASE_URL}/current_user/${token}`,requestOptions).then(handleResponse)
 }
+
+const logout =()=>{
+    localStorage.removeItem('user')
+}
 export const authService = {
-    login,register,currentUser
+    login,register,currentUser,logout
     }

@@ -1,4 +1,4 @@
-<div className="row" style={{marginTop:"20px" }}>
+ii<div className="row" style={{marginTop:"20px" }}>
 
         <div className="col s3"> <div className="card-panel pink lighten-1">
             <img src="http://lorempixel.com/300/100/nature/3" alt="" className="responsive-img" />
