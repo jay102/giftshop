@@ -7,13 +7,26 @@ const initialState = { user: null }
 export default function (state = initialState, action) {
     switch (action.type) {
         case authConstants.FETCH_CURRENT_USER:
-            return {...state, user: action.payload} ;
-           
-        case authConstants.REGISTER_SUCCESS:
-            return {...state, response : action.payload} 
+            return { ...state, user: action.payload };
 
-            case authConstants.LOGIN_SUCCESS:
-                return {...state, response:action.payload}
+        case authConstants.REGISTER_SUCCESS:
+            return { ...state, response: action.payload }
+
+        case authConstants.REGISTER_FAILURE:
+            return { ...state, error: action.payload }
+
+        case authConstants.LOGIN_SUCCESS:
+            return { ...state, response: action.payload, loggedIn: true }
+
+        case authConstants.LOGIN_FAILURE:
+            return { ...state, response: action.payload }
+
+        case authConstants.CLEAR_RESPONSE:
+            return { ...state, response: null }
+
+        case authConstants.LOGOUT:
+            return {}
+            
         default:
             return state;
     }
