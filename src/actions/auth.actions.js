@@ -50,7 +50,6 @@ const login = (email, password) => {
             //finally we dispatch by calling our action creator above and passing the result
             localStorage.setItem('user',JSON.stringify(result.user))
             dispatch(loginSuccess(result))
-            console.log(result)
         } catch (err) {
 
             // if theres an error here we dispatch login failed

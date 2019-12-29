@@ -34,14 +34,17 @@ class Register extends React.Component {
     }
     render() {
         const { auth } = this.props
-        let isSuccess;
-        if (auth.response) {
-            isSuccess = true;
-            alert(auth.response.message);
+        let isSuccess,response;
+        if (auth.response.message) {
+            isSuccess = auth.response.message;
+            response = auth.response.message;
         }
-        // console.log(auth)
+        if (auth.response.error !== undefined) {
+            response = auth.response.error
+        }
         return (
             <>
+             {response ? alert(response) : null}
                 {isSuccess && <Redirect to="/" />}
                 <div>
                     <br /><br />

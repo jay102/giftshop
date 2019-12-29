@@ -3,7 +3,7 @@ import { authConstants } from '../constants';
 import { authActions } from '../actions';
 //import { FETCH_CURRENT_USER } from '../actions';
 //we add an initial state with an empty user here
-const initialState = { user: null }
+const initialState = { user: null,response:{} }
 export default function (state = initialState, action) {
     switch (action.type) {
         case authConstants.FETCH_CURRENT_USER:
@@ -22,10 +22,10 @@ export default function (state = initialState, action) {
             return { ...state, response: action.payload }
 
         case authConstants.CLEAR_RESPONSE:
-            return { ...state, response: null }
+            return { ...state, response: {} }
 
         case authConstants.LOGOUT:
-            return {}
+            return {...state,response:{}}
             
         default:
             return state;
