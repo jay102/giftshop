@@ -24,6 +24,9 @@ class ForgetPassword extends React.Component {
         e.preventDefault();
         const { email, password, confirmPassword } = this.state;
         const{dispatch} = this.props;
+        if(password !== confirmPassword){
+            alert("passwords are not matching ! ")
+        }
         if(email!=='' && password !=='' && confirmPassword !==''){
             dispatch(authActions.forgetPassword(email,password))
         }
