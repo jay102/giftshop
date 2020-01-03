@@ -28,11 +28,7 @@ class Login extends React.Component {
         const { email, password } = this.state;
         const { dispatch } = this.props;
         if (email !== "" && password !== "") {
-<<<<<<< HEAD
             dispatch(authActions.login(email, password));
-=======
-           dispatch(authActions.login(email,password));
->>>>>>> b12b0a9dc18a4ebfd59d95ec286121bc5de2bfd7
         }
         else {
             alert("Name or password cannnot be empty")
@@ -40,7 +36,6 @@ class Login extends React.Component {
     }
     render() {
         const { auth } = this.props;
-<<<<<<< HEAD
         let isSuccess, isError;
         if (auth.message) {
             isSuccess = true;
@@ -50,9 +45,6 @@ class Login extends React.Component {
             alert(auth.response.error)
         }
         //console.log(auth);
-=======
-        console.log(auth.response)
->>>>>>> b12b0a9dc18a4ebfd59d95ec286121bc5de2bfd7
         return (
             <>
                 {isSuccess && <Redirect to="/productcategory" />}
