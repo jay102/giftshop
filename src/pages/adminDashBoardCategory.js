@@ -7,7 +7,7 @@ class CategoryAdminDashboard extends React.Component {
         super(props)
         this.state = {
             categoryName: "",
-             categoryImage: ""
+            categoryImage: ""
         }
     }
 
@@ -29,20 +29,20 @@ class CategoryAdminDashboard extends React.Component {
         })
     }
 
-    handleImageChange=(e)=>{
-                this.setState({
+    handleImageChange = (e) => {
+        this.setState({
             categoryImage: e.target.files[0]
         })
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        const { categoryName, categoryImage} = this.state;
+        const { categoryName, categoryImage } = this.state;
         const { dispatch } = this.props;
-        const category = { categoryName, categoryImage}
-        if (categoryName !== "",   categoryImage!== "") {
-           const data = new FormData();
-           data.append('image',categoryImage);
-           data.append('categoryName', categoryName)
+        const category = { categoryName, categoryImage }
+        if (categoryName !== "", categoryImage !== "") {
+            const data = new FormData();
+            data.append('image', categoryImage);
+            data.append('categoryName', categoryName)
             dispatch(categoryActions.addCategory(data))
         }
         else {
@@ -61,7 +61,7 @@ class CategoryAdminDashboard extends React.Component {
         if (category.response.error !== undefined) {
             response = category.response.error
         }
-      return (
+        return (
             <>
                 <br /><br /><br />
                 <div className="container">
@@ -74,7 +74,7 @@ class CategoryAdminDashboard extends React.Component {
                         </div>
                         <div className="input-field">
                             <label for="  categoryImage" style={{ paddingLeft: "10px" }}>Category Image:</label> <br /> <br />
-                            <input type="file"  style={{ paddingLeft: "10px" }}  onChange={this.handleImageChange} />
+                            <input type="file" style={{ paddingLeft: "10px" }} onChange={this.handleImageChange} />
                         </div>
                         <div className="center">
                             <button className=" waves-effect waves-light btn-small btn pink "

@@ -88,7 +88,7 @@ class ProductAdminDashBoard extends React.Component {
         console.log(this.state.categoryId);
         //console.log(this.handleSelect())
         let isSuccess, response;
-        if (Object.keys(product.response).length !== 0 && Object.keys(category.response).length !== 0) {
+        if (Object.keys(product.response).length !== 0 && Object.keys(product.response).length !== 0) {
             isSuccess = product.response.message;
             response = product.response.message;
         }

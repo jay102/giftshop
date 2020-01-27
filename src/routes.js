@@ -10,6 +10,9 @@ import Login from './pages/login/login';
 import Register from './pages/login/register';
 import Logout from './pages/login/Logout';
 import {PrivateRoute} from './privateRoute';
+import ProductAdminDashBoard from './pages/adminDashBoardProduct';
+import CategoryAdminDashboard from './pages/adminDashBoardCategory';
+
 
 const Routes = () => {
     return (
@@ -25,10 +28,14 @@ const Routes = () => {
                 <Route exact path="/bdaygift" component={ProductDetail} />
                 <Route exact path="/xmasgift" component={ProductDetail} />
                 <PrivateRoute exact path="/checkout" component={Checkout} />
-                <Route exact path="/productcategory" component={ProductCategory} />
+                <Route exact path="/category" component={ProductCategory} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/logout" component={Logout} />
+                <Route exact path="/admin-category" component={CategoryAdminDashboard}/>
+                <Route exact path="/admin-product" component={ProductAdminDashBoard}/>
+                <Route exact path="/logout" component={Logout} />
+
 
 
             </Switch>
